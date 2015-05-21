@@ -9,6 +9,147 @@
 
 
 
+.master-content section.body {
+    padding: 0 1em;
+}
+
+article.hentry {
+    z-index: 10;
+    background-color: $bg-color;
+    box-shadow: 1px 1px 5px lighten($shadow-gray, 20%);
+    margin: 0.5em;
+
+    h2 {
+        font-weight: 400;
+        font-family: $title-stack;
+        letter-spacing: 0.05em;
+        padding-bottom: 0.1em;
+        padding-left: 0.3em;
+    }
+
+    .post-info {
+        z-index: 10;
+        font-size: 75%;
+    }
+
+    a .pure-img {
+        display: inline;
+    }
+
+    .post-info, .entry-content {
+        background-color: $bg-color;
+        padding: 0 0.5em;
+        z-index: 10;
+
+        p {
+            margin: 0;
+            padding: 0.5em;
+        }
+
+    }
+}
+
+
+.goto-article {
+    position: relative;
+    display: inline-block; /* stretch to image */
+    max-width: 100%;
+}
+
+.goto-article:before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(
+        to top,
+        fade-out($dark-color, 0) 0%,
+        fade-out($dark-color, 0.1) 1em,
+        fade-out($dark-color, 0.3) 1.8em,
+        rgba(255,255,255,0) 2.8em,
+        rgba(255,255,255,0) 100%
+    );
+}
+
+.goto-article h2 {
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    // padding-left: -0.2em;
+    // padding-bottom: 0.2em;
+    white-space: nowrap;
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: $accent2;
+}
+
+
+#contentinfo {
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.post-info-article {
+    border-radius: 4px;
+    padding: 1.2em;
+    font-size: inherit;
+    text-align: center;
+    width: auto;
+}
+
+
+
+
+
+//////////////////////////////////////
+// HEADER
+//////////////////////////////////////
+
+.master-header {
+    // background-color: lighten($accent2, 30%);
+    background-color: darken($bg-color, 5%);
+}
+
+
+.master-header .title {
+
+    // background-color: $dark-color;
+    // background-image: radial-gradient(200px at top, lighten($dark-color, 8%), $dark-color);
+
+    padding: 0 1em;
+
+    h1 {
+        text-align: center;
+        font-family: $title-stack;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        margin-bottom: 0.2em;
+    }
+    h1 a {
+        color: $dark-color;
+    }
+
+    h1 a:hover {
+        color: $accent3;
+    }
+
+    a {
+        // color: $accent2;
+        text-decoration: none;
+    }
+
+    a:hover {
+        // color: $accent1;
+    }
+
+}
+
+
+
 .menu-wrapper {
     -webkit-font-smoothing: antialiased;
     // max-height: 2.1em;
@@ -142,43 +283,13 @@
     background-color: $accent1;
 }
 
-.title-div {
 
-    // background-color: $dark-color;
-    // background-image: radial-gradient(200px at top, lighten($dark-color, 8%), $dark-color);
 
-    padding: 0 1em;
+//////////////////////////////////////
+// CONTENT
+//////////////////////////////////////
 
-    h1 {
-        text-align: center;
-        font-family: $title-stack;
-        letter-spacing: 0.1em;
-        font-weight: 700;
-        margin-bottom: 0.2em;
-    }
-    h1 a {
-        color: $dark-color;
-    }
 
-    h1 a:hover {
-        color: $accent3;
-    }
-
-    a {
-        // color: $accent2;
-        text-decoration: none;
-    }
-
-    a:hover {
-        // color: $accent1;
-    }
-
-}
-
-.outer-header {
-    // background-color: lighten($accent2, 30%);
-    background-color: darken($bg-color, 5%);
-}
 
 .content-wrapper {
     background-color: $subtle-bg;
@@ -194,12 +305,9 @@
 }
 
 
-.outer-content, .outer-footer {
+.master-content {
+
     padding-top: 1em;
-}
-
-
-.outer-content {
 
     background-color: lighten($accent2, 42%);
     // background-image: linear-gradient(to bottom, lighten($dark-color, 20%), fade-out($dark-color, 1.0) 10px);
@@ -210,7 +318,17 @@
 }
 
 
-.footer-container {
+
+
+//////////////////////////////////////
+// FOOTER
+//////////////////////////////////////
+
+.master-footer {
+    padding-top: 1em;
+}
+
+.master-footer .container {
     color: $bg-color;
     padding-bottom: 1em;
 
@@ -223,104 +341,20 @@
     }
 }
 
-section#content.body {
-    padding: 0 1em;
-}
 
-article.hentry {
-    z-index: 10;
-    background-color: $bg-color;
-    box-shadow: 1px 1px 5px lighten($shadow-gray, 20%);
-    margin: 0.5em;
-
-    h2 {
-        font-weight: 400;
-        font-family: $title-stack;
-        letter-spacing: 0.05em;
-        padding-bottom: 0.1em;
-        padding-left: 0.3em;
-    }
-
-    .post-info {
-        z-index: 10;
-        font-size: 75%;
-    }
-
-    a .pure-img {
-        display: inline;
-    }
-
-    .post-info, .entry-content {
-        background-color: $bg-color;
-        padding: 0 0.5em;
-        z-index: 10;
-
-        p {
-            margin: 0;
-            padding: 0.5em;
-        }
-
+.master-footer {
+    #about, #contact, #links {
+        padding: 0 1.5em;
     }
 }
 
 
-.goto-article {
-    position: relative;
-    display: inline-block; /* stretch to image */
-    max-width: 100%;
-}
-
-.goto-article:before {
-    content: "";
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: linear-gradient(
-        to top,
-        fade-out($dark-color, 0) 0%,
-        fade-out($dark-color, 0.1) 1em,
-        fade-out($dark-color, 0.3) 1.8em,
-        rgba(255,255,255,0) 2.8em,
-        rgba(255,255,255,0) 100%
-    );
-}
-
-.goto-article h2 {
-    z-index: 10;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    // padding-left: -0.2em;
-    // padding-bottom: 0.2em;
-    white-space: nowrap;
-    width: 80%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: $accent2;
-}
+//////////////////////////////////////
+// VISUAL EFFECTS
+//////////////////////////////////////
 
 
-#about {
-    width: 100%;
-}
-
-#contentinfo {
-    width: 100%;
-    text-align: center;
-}
-
-
-
-.post-info-article {
-    border-radius: 4px;
-    padding: 1.2em;
-    font-size: inherit;
-    text-align: center;
-    width: auto;
-}
-
-
-
+// the element to which .lift-* is applied to must have a z-index value > -1!
 .lift-right {
   position: relative;
 }
@@ -371,3 +405,4 @@ article.hentry {
   -ms-transform: rotate(-3deg);
   transform: rotate(-3deg);
 }
+

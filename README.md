@@ -61,14 +61,30 @@ The theme provides these variables:
 
 On each article, it is possible to specify a `Picture` variable in the metadata. This picture will be automatically used in the post list (a thumbnail will be automatically created if the advthumbnailer plugin is installed/used) and also in the article view (see `DISPLAY_PICTURE_IN_ARTICLE`).
 
+
+## Features
+
+ - Responsive tables!
+
  
 ## Customization
 
-Pre-compiled CSS files are provided with the theme. If you decide to change them, instead of editing them directly, I recommend editing the SCSS files (look in `static/scss`) and use `libsass` to compile the CSS files. To automate this process, add the following lines to `pelicanconf.py`:
+Pre-compiled CSS files are provided with the theme. If you decide to change them, instead of editing them directly, I recommend editing the SCSS files (look in `static/scss`) and use `libsass` to compile the CSS files. 
+
+### Theme development
+
+Edit the files in `static/scss` and then simply run `python make_css.py` from this (the root) folder.
+
+### Inside a Project
+
+To automate this process when using the theme in a specific project, add the following lines to `pelicanconf.py`:
 
     import os
     import sass
     sass.compile(dirname=(os.path.join(THEME,'static/scss'),
                           os.path.join(THEME,'static/css')))
+    sass.compile(dirname=(os.path.join(THEME,'static/font-awesome-4.3.0/scss'),
+                          os.path.join(THEME,'static/fonts')))
+
 
 

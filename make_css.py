@@ -13,4 +13,5 @@ from this folder. It requires libsass installed:
 
 from sass import compile
 
-compile(dirname=('./scss', './css'))
+compile(dirname=('static/scss', 'static/css'))
+# compile(dirname=('static/font-awesome-4.3.0/scss', 'static/fonts'))
