@@ -46,9 +46,6 @@
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pure-min.css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pure-grids-responsive-min.css" />
 
-    <!-- responsive menu script -->
-    <script src="{{ SITEURL }}/theme/js/menu.js" type="text/javascript" charset="utf-8" async defer></script>
-
     <!-- IPython Notebook support -->
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
     <script src="{{ SITEURL }}/theme/js/ipynb.js" type="text/javascript" charset="utf-8" async defer></script>
@@ -114,7 +111,12 @@
 
     {% include "footer.html" %}
 
+    <!-- responsive menu script -->
+    <script src="{{ SITEURL }}/theme/js/menu.js" type="text/javascript" charset="utf-8" async defer></script>
+
 </body>
+
+
 
 <!-- Pelican-dynamic support -->
 {% if 'pelican_dynamic' in PLUGINS %}
