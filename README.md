@@ -1,6 +1,7 @@
-Title: Pelican Feathers
-Author: Jorge Herrera (jorgeh@ccrma.stanford.edu)
-Date: 05/20/2015
+Title: Pelican Feathers  
+Author: Jorge Herrera (jorgeh@ccrma.stanford.edu)  
+Date: 05/20/2015  
+
 
 # Pelican Feathers
 
