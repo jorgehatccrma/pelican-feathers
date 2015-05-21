@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:site_name" content="{{ SITENAME }}" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ SITENAME }}"/>
+    <meta property="og:url" content="{{ SITEURL }}"/>
+    <meta property="og:description" content="{{ SITENAME }}"/>
+
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta charset="utf-8" />
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+    {% endif %}
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+    {% endif %}
+    {% if TAG_FEED_RSS and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+    {% endif %}
+    {% endblock head %}
+
+    <!-- Pygments support -->
+    <link href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+
+    <!-- Purecss.io -->
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pure-min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pure-grids-responsive-min.css" />
+
+    <!-- responsive menu script -->
+    <script src="{{ SITEURL }}/theme/js/menu.js" type="text/javascript" charset="utf-8" async defer></script>
+
+    <!-- IPython Notebook support -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+    <script src="{{ SITEURL }}/theme/js/ipynb.js" type="text/javascript" charset="utf-8" async defer></script>
+
+
+    <!-- Actual theme style -->
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/ipynb.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/module.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/state.css" />
+
+    <!-- Pelican-dynmic support -->
+    {% if 'pelican_dynamic' in PLUGINS %}
+        {% if article %}
+            {% if article.styles %}
+                {% for style in article.styles %}
+        {{ style }}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+        {% if page %}
+            {% if page.styles %}
+                {% for style in page.styles %}
+        {{ style }}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+
+</head>
+
+
+
+
+
+<body id="index" class="home">
+
+    <div class="pure-g outer-header">
+
+        <div class="left-gutter pure-u-1 pure-u-sm-1-24 pure-u-md-1-12 pure-u-lg-1-8 pure-u-xl-1-6"></div>
+
+        <div class="pure-u-1 pure-u-sm-11-12 pure-u-md-5-6 pure-u-lg-3-4 pure-u-xl-2-3" id="header-div">
+
+            <div class="pure-g" >
+
+                <div class="pure-u-1 title-div">
+                    <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+                    <div class="menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s><s class="bar"></s>
+                    </div>
+                </div><!-- end .title-div -->
+
+
+                <div class="pure-u-1 menu-wrapper" id="main-menu">
+                    <div class="pure-menu pure-menu-horizontal menu-can-transform">
+                        <nav>
+                            <ul class="pure-menu-list" id="main-menu-ul">
+                                {% for title, link in MENUITEMS %}
+                                    <li class="pure-menu-item"><a class="pure-menu-link" href="{{ link }}">{{ title }}</a></li>
+                                {% endfor %}
+                                {% if DISPLAY_PAGES_ON_MENU %}
+                                    {% for p in PAGES %}
+                                        <li{% if p == page %} class="active pure-menu-item"{% else %} class="pure-menu-item"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                                    {% endfor %}
+                                {% else %}
+                                    {% if DISPLAY_CATEGORIES_ON_MENU %}
+                                        {% for cat, null in categories %}
+                                            <li{% if cat == category %} class="active pure-menu-item"{% else %} class="pure-menu-item"{% endif %}><a class="pure-menu-link" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div><!-- end #main-menu -->
+
+        </div><!-- end #header-div -->
+
+        <div class="right-gutter pure-u-1 pure-u-sm-1-24 pure-u-md-1-12 pure-u-lg-1-8 pure-u-xl-1-6"></div>
+
+    </div>
+
+    <div class="pure-g outer-content">
+
+        <div class="left-gutter pure-u-1 pure-u-sm-1-24 pure-u-md-1-12 pure-u-lg-1-8 pure-u-xl-1-6"></div>
+
+        <div class="pure-u-1 pure-u-sm-11-12 pure-u-md-5-6 pure-u-lg-3-4 pure-u-xl-2-3" id="outer-container">
+
+            <div class="content-wrapper">
+                {% block content %}
+                {% endblock %}
+            </div><!-- end .content-wrapper -->
+
+        </div><!-- End #outer-container -->
+
+        <div class="right-gutter pure-u-1 pure-u-sm-1-24 pure-u-md-1-12 pure-u-lg-1-8 pure-u-xl-1-6"></div>
+
+    </div> <!-- end .outer-content -->
+
+
+    <div class="pure-g outer-footer">
+
+        <div class="left-gutter pure-u-1 pure-u-sm-1-24 pure-u-md-1-12 pure-u-lg-1-8 pure-u-xl-1-6"></div>
+
+        <div class="footer-container pure-u-1 pure-u-sm-11-12 pure-u-md-5-6 pure-u-lg-3-4 pure-u-xl-2-3">
+
+            <div class="pure-g">
+
+                {% if ABOUT_TEXT is defined or ABOUT_IMAGE is defined or ABOUT_LINK is defined %}
+                    <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+                        <section id="about">
+                            <header>
+                                <h2>Me</h2>
+                            </header>
+                            {% if ABOUT_LINK is defined %}
+                                <a href="{{ ABOUT_LINK }}"><img class="pure-img" src="{{ SITEURL }}/{{ ABOUT_IMAGE | thumbnail("400x_") }}"/></a>
+
+                            {% else %}
+                                <img class="pure-img" src="{{ SITEURL }}/{{ ABOUT_IMAGE | thumbnail("400x_") }}"/>
+                            {% endif %}
+                            <p>
+                            {{ ABOUT_TEXT }}
+                            </p>
+                            <footer>
+                                {% if ABOUT_LINK is defined %}
+                                    <a href="{{ ABOUT_LINK }}" class="button">Find out more</a>
+                                {% endif %}
+                            </footer>
+                        </section>
+                    </div>
+                {% endif %}
+
+                <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+                    <section>
+                        <header>
+                            <h2>Links</h2>
+                        </header>
+                        <ul class="divided">
+                            {% for name, link in LINKS %}
+                                <li><a href="{{ link }}">{{ name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+                    <section>
+                        <header>
+                            <h2>Contact</h2>
+                        </header>
+                        <ul class="social">
+                            {% if FACEBOOK_USER %}
+                                <li class="facebook"><a href="https://www.facebook.com/{{ FACEBOOK_USER }}" class="icon48 icon48-1">Facebook</a></li>
+                            {% endif %}
+                            {% if TWITTER_USER is defined %}
+                                <li class="twitter"><a href="http://twitter.com/{{ TWITTER_USER }}" class="icon48 icon48-2">Twitter</a></li>
+                            {% endif %}
+                            {% if LINKEDIN_USER %}
+                            <li class="linkedin"><a href="http://www.linkedin.com/pub/{{ LINKEDIN_USER }}" class="icon48 icon48-4">LinkedIn</a></li>
+                            {% endif %}
+                            {% if GOOGLEPLUS_USER %}
+                                <li class="googleplus"><a href="https://plus.google.com/{{ GOOGLEPLUS_USER }}" class="icon48 icon48-6">Google+</a></li>
+                            {% endif %}
+                        </ul>
+                        {% if ADDRESS is defined or MAIL is defined or PHONE is defined %}
+                        <ul class="contact">
+                            {% if ADDRESS is defined %}
+                            <li>
+                                <h3>Address</h3>
+                                <p>
+                                    {{ ADDRESS }}
+                                </p>
+                            </li>
+                            {% endif %}
+                            {% if MAIL is defined %}
+                                <li>
+                                    <h3>Mail</h3>
+                                    <p><a href="mailto:{{ MAIL }}">{{ MAIL }}</a></p>
+                                </li>
+                            {% endif %}
+                            {% if PHONE %}
+                                <li>
+                                    <h3>Phone</h3>
+                                    <p>{{ PHONE }}</p>
+                                </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                    </section>
+                </div>
+
+
+                <div class="pure-u-1">
+
+                    <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                        Created with <a href="http://getpelican.com/" title="Pelican, a Static Website Generator written in Python">Pelican</a>, <a href="http://purecss.io/" title="Pure.css, CSS framework for responsive websites">Pure</a> and <a href="http://sass-lang.com/" title="Sass, language for CSS generation">Sass</a>.
+                        </address><!-- /#about -->
+                     </footer><!-- /#contentinfo -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right-gutter pure-u-1 pure-u-sm-1-24 pure-u-md-1-12 pure-u-lg-1-8 pure-u-xl-1-6"></div>
+
+    </div>
+
+</body>
+
+<!-- Pelican-dynamic support -->
+{% if 'pelican_dynamic' in PLUGINS %}
+    {% if article %}
+        {% if article.scripts %}
+            {% for script in article.scripts %}
+    {{ script }}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    {% if page %}
+        {% if page.scripts %}
+            {% for script in page.scripts %}
+    {{ script }}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+</html>

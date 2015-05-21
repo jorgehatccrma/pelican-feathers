@@ -1,0 +1,90 @@
+/*
+ * @Author: Jorge Herrera
+ * @Date:   2015-05-18 13:30:43
+ * @Last Modified by:   Jorge Herrera
+ * @Last Modified time: 2015-05-18 13:30:43
+ *
+ *
+ * Following SMACSS guidelines
+ *     https://smacss.com/
+ */
+
+
+@charset "UTF-8";
+
+@import 'globals';
+
+body {
+    background-color: $dark-color;
+    color: $dark-color;
+    margin: 0;
+}
+
+pre {
+    font-family: $code-stack;
+    padding: 0.5em;
+    font-weight: 300;
+}
+
+code {
+    background-color: fade-out($accent3,0.8);
+    padding: 0 0.3em;
+}
+
+a {
+    color: $accent1;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $accent3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-style: $title-stack;
+    font-weight: bold;
+}
+
+
+/*
+When setting the primary font stack, apply it to the Pure grid units along
+with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
+specific font stacks to ensure the greatest OS/browser compatibility.
+*/
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: $body-stack;
+    font-weight: 300;
+}
+
+
+
+
+
+
+// Responsive Tables
+
+table tr {
+    border-bottom: 1px solid $accent2;
+}
+
+/* Zebra striping */
+tr:nth-of-type(even) {
+  background: fade-out($bg-color, 0.75);
+}
+
+table td, table th {
+    padding: 0.8em;
+}
+
+
+dl {  // used in archives.html
+    margin-bottom: 2em;
+}
+
+dl dd {  // used in archives.html
+    margin-bottom: 1em;
+}
+
+

@@ -1,0 +1,50 @@
+table {
+  margin: 1em 0;
+  min-width: 260px; }
+  table th {
+    display: none; }
+  table td {
+    display: block;
+    /*    &:before {
+      content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
+      font-weight: bold;
+
+      // optional stuff to make it look nicer
+      width: 6.5em; // magic number :( adjust according to your own content
+      display: inline-block;
+      // end options
+
+      @media (min-width: $breakpoint-alpha) {
+        display: none;
+      }
+    }*/ }
+    table td:first-child {
+      padding-top: .5em; }
+    table td:last-child {
+      padding-bottom: .5em; }
+  table th, table td {
+    text-align: left; }
+    @media (min-width: 48em) {
+      table th, table td {
+        display: table-cell;
+        padding: 0.25em 0.5em; }
+        table th:first-child, table td:first-child {
+          padding-left: 0; }
+        table th:last-child, table td:last-child {
+          padding-right: 0; } }
+
+table {
+  padding: 0 2em;
+  border-radius: .4em;
+  overflow: hidden; }
+  table tr {
+    /*border-top: 1px solid #ddd;*/
+    border-bottom: 1px solid #ddd; }
+  table th, table td {
+    margin: 0.5em 1em; }
+    @media (min-width: 48em) {
+      table th, table td {
+        padding: 1em !important; } }
+  table th, table td:before {
+    color: #333;
+    font-weight: bold; }

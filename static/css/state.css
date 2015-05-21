@@ -1,0 +1,59 @@
+/*
+ * Following SMACSS guidelines
+ *     https://smacss.com/
+ */
+/*********************
+ * SASS/SCSS Globals
+ *********************/
+/**********************
+* font stacks
+**********************/
+@import url("//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700");
+@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic");
+@import url("//fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700");
+/**********************
+ * main color palette
+ **********************/
+@media (max-width: 35em) {
+  article.hentry {
+    margin: 0.5em 0; }
+  /* REPONSIVE TABLE */
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block; }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    visibility: hidden;
+    height: 0; }
+  tr {
+    padding: 0.5em; }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    text-align: left;
+    position: relative;
+    margin: 0.5em 0;
+    padding-left: 0; }
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap; } }
+
+@media (max-width: 48em) {
+  .menu-toggle {
+    display: block; }
+  #main-menu {
+    margin-bottom: 1em; }
+  #main-menu-ul {
+    display: auto;
+    table-layout: auto; }
+  #main-menu-ul li {
+    display: block; }
+  #main-menu-ul a {
+    display: block; } }

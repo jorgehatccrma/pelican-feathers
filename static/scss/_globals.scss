@@ -1,0 +1,37 @@
+/*********************
+ * SASS/SCSS Globals
+ *********************/
+
+@charset "UTF-8";
+
+// create breakpoints matching PureCSS defaults (see http://include-media.com/)
+@import '_include_media';
+$breakpoints: ('small': 35em, 'medium': 48em, 'large': 64em, 'extra-large': 80em);
+
+
+/**********************
+* font stacks
+**********************/
+
+@import url("//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700");
+@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic");
+@import url("//fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700");
+
+$body-stack: "Source Sans Pro", Helvetica, sans-serif;
+$title-stack: "Yanone Kaffeesatz", "Source Sans Pro", Helvetica, sans-serif;
+$code-stack: "Source Code Pro", monospace;
+
+
+/**********************
+ * main color palette
+ **********************/
+
+// "Inspiration 4"
+$bg-color: #ffffff;
+$dark-color: #1d1d1d;
+$accent1: #ff441e;
+$accent2: #fdba14;
+$accent3: #095d69;
+
+$subtle-bg: fade-out($bg-color, 0.7);
+$shadow-gray: #777;

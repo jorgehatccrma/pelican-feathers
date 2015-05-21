@@ -1,0 +1,73 @@
+/*
+ * @Author: Jorge Herrera
+ * @Date:   2015-05-18 13:30:43
+ * @Last Modified by:   Jorge Herrera
+ * @Last Modified time: 2015-05-18 13:30:43
+ *
+ *
+ * Following SMACSS guidelines
+ *     https://smacss.com/
+ */
+/*********************
+ * SASS/SCSS Globals
+ *********************/
+/**********************
+* font stacks
+**********************/
+@import url("//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700");
+@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic");
+@import url("//fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700");
+/**********************
+ * main color palette
+ **********************/
+body {
+  background-color: #1d1d1d;
+  color: #1d1d1d;
+  margin: 0; }
+
+pre {
+  font-family: "Source Code Pro", monospace;
+  padding: 0.5em;
+  font-weight: 300; }
+
+code {
+  background-color: rgba(9, 93, 105, 0.2);
+  padding: 0 0.3em; }
+
+a {
+  color: #ff441e;
+  text-decoration: none; }
+
+a:hover {
+  color: #095d69; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-style: "Yanone Kaffeesatz", "Source Sans Pro", Helvetica, sans-serif;
+  font-weight: bold; }
+
+/*
+When setting the primary font stack, apply it to the Pure grid units along
+with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
+specific font stacks to ensure the greatest OS/browser compatibility.
+*/
+html, button, input, select, textarea,
+.pure-g [class*="pure-u"] {
+  /* Set your content font stack here: */
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-weight: 300; }
+
+table tr {
+  border-bottom: 1px solid #fdba14; }
+
+/* Zebra striping */
+tr:nth-of-type(even) {
+  background: rgba(255, 255, 255, 0.25); }
+
+table td, table th {
+  padding: 0.8em; }
+
+dl {
+  margin-bottom: 2em; }
+
+dl dd {
+  margin-bottom: 1em; }

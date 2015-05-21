@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="content">
+{% block content_title %}
+<!-- <h2>All articles</h2> -->
+{% endblock %}
+
+
+<div class="pure-g" id="post-list">
+{% for article in articles_page.object_list %}
+        <div class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3">
+            <article class="hentry lift-{{ ['right','left']|random }}">
+                <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+                {% if article.picture %}
+                    <div class="goto-article">
+                        {% if 'advthumbnailer' in PLUGINS %}
+                            <img class="pure-img" src="{{ SITEURL }}/{{ article.picture | thumbnail("500x_") }}"/>
+                        {% else %}
+                            <img class="pure-img" src="{{ SITEURL }}/{{ article.picture }}"/>
+                        {% endif %}
+                    <header><h2 class="entry-title">{{ article.title }}</h2></header>
+                    </div>
+                {% else %}
+                    <header><h2 class="entry-title">{{ article.title }}</h2></header>
+                {% endif %}
+                </a>
+                <footer class="post-info">
+                    {% if SHOW_DATE_IN_POST_LIST %}
+                        <abbr class="published" title="{{ article.date.isoformat() }}"> {{ article.locale_date }} </abbr>
+                    {% endif %}
+                    {% if SHOW_AUTHORS_IN_POST_LIST %}
+                        <address class="vcard author">By
+                        {% for author in article.authors %}
+                            <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                        {% endfor %}
+                    {% endif %}
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
+            </article>
+        </div>
+{% endfor %}
+</div><!-- /#posts-list -->
+{% include 'pagination.html' %}
+</section><!-- /#content -->
+{% endblock content %}
