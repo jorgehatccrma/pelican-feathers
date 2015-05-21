@@ -290,7 +290,6 @@ article.hentry {
 //////////////////////////////////////
 
 
-
 .content-wrapper {
     background-color: $subtle-bg;
     margin-bottom: 2em;
@@ -302,6 +301,11 @@ article.hentry {
     h3 {
         margin-top: 2em;
     }
+
+    .entry-title a:hover {
+        text-decoration: underline;
+    }
+
 }
 
 

@@ -42,8 +42,7 @@ a {
   text-decoration: none; }
 
 a:hover {
-  color: #095d69;
-  font-weight: 400; }
+  color: #095d69; }
 
 h1, h2, h3, h4, h5, h6 {
   font-style: "Yanone Kaffeesatz", "Source Sans Pro", Helvetica, sans-serif;
