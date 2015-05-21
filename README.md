@@ -83,8 +83,6 @@ To automate this process when using the theme in a specific project, add the fol
     import sass
     sass.compile(dirname=(os.path.join(THEME,'static/scss'),
                           os.path.join(THEME,'static/css')))
-    sass.compile(dirname=(os.path.join(THEME,'static/font-awesome-4.3.0/scss'),
-                          os.path.join(THEME,'static/fonts')))
 
 
 
