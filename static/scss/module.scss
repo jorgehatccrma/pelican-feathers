@@ -410,3 +410,8 @@ article.hentry {
   transform: rotate(-3deg);
 }
 
+hr.sexy {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, fade-out($bg-color,1), fade-out($bg-color,0.5), fade-out($bg-color,1));
+}
