@@ -54,36 +54,39 @@ article.hentry {
     position: relative;
     display: inline-block; /* stretch to image */
     max-width: 100%;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: linear-gradient(
+            to top,
+            fade-out($dark-color, 0) 0%,
+            fade-out($dark-color, 0.1) 1em,
+            fade-out($dark-color, 0.3) 1.8em,
+            rgba(255,255,255,0) 2.8em,
+            rgba(255,255,255,0) 100%
+        );
+    }
+
+    h2 {
+        z-index: 10;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        // padding-left: -0.2em;
+        // padding-bottom: 0.2em;
+        white-space: nowrap;
+        width: 80%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: $accent2;
+    }
+
 }
 
-.goto-article:before {
-    content: "";
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: linear-gradient(
-        to top,
-        fade-out($dark-color, 0) 0%,
-        fade-out($dark-color, 0.1) 1em,
-        fade-out($dark-color, 0.3) 1.8em,
-        rgba(255,255,255,0) 2.8em,
-        rgba(255,255,255,0) 100%
-    );
-}
 
-.goto-article h2 {
-    z-index: 10;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    // padding-left: -0.2em;
-    // padding-bottom: 0.2em;
-    white-space: nowrap;
-    width: 80%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: $accent2;
-}
 
 
 #contentinfo {
@@ -112,41 +115,43 @@ article.hentry {
 .master-header {
     // background-color: lighten($accent2, 30%);
     background-color: darken($bg-color, 5%);
+
+    .title {
+
+        // background-color: $dark-color;
+        // background-image: radial-gradient(200px at top, lighten($dark-color, 8%), $dark-color);
+
+        padding: 0 1em;
+
+        h1 {
+            text-align: center;
+            font-family: $title-stack;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin-bottom: 0.2em;
+        }
+        h1 a {
+            color: $dark-color;
+        }
+
+        h1 a:hover {
+            color: $accent3;
+        }
+
+        a {
+            // color: $accent2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            // color: $accent1;
+        }
+
+    }
+
 }
 
 
-.master-header .title {
-
-    // background-color: $dark-color;
-    // background-image: radial-gradient(200px at top, lighten($dark-color, 8%), $dark-color);
-
-    padding: 0 1em;
-
-    h1 {
-        text-align: center;
-        font-family: $title-stack;
-        letter-spacing: 0.1em;
-        font-weight: 700;
-        margin-bottom: 0.2em;
-    }
-    h1 a {
-        color: $dark-color;
-    }
-
-    h1 a:hover {
-        color: $accent3;
-    }
-
-    a {
-        // color: $accent2;
-        text-decoration: none;
-    }
-
-    a:hover {
-        // color: $accent1;
-    }
-
-}
 
 
 
@@ -159,41 +164,45 @@ article.hentry {
     -o-transition: max-height 0.5s;
     -ms-transition: max-height 0.5s;
     transition: max-height 0.5s;
+
+    &.small {
+        max-height: 0;
+
+        &.open {
+            max-height: 14em;
+        }
+
+    }
+
 }
 
-
-.menu-wrapper.small {
-    max-height: 0;
-}
-
-.menu-wrapper.small.open {
-    max-height: 14em;
-}
 
 #main-menu-ul {
     display: table;
     width: 100%;
     table-layout: fixed;
     padding: 0.5em 0;
+
+    li {
+        display: table-cell;
+    }
+
+    a {
+        display: block;
+    }
+
+    li a {
+        text-align: center;
+        text-decoration: none;
+        color: $accent3;
+    }
+
+    li.active a {
+        color: $accent1;
+    }
+
 }
 
-#main-menu-ul li {
-    display: table-cell;
-}
-
-#main-menu-ul a {
-    display: block;
-}
-
-#main-menu-ul li a {
-    text-align: center;
-    text-decoration: none;
-    color: $accent3;
-}
-
-#main-menu-ul li.active a {
-    color: $accent1;
-}
 
 .menu-toggle {
     width: 34px;
@@ -203,70 +212,77 @@ article.hentry {
     top: 0;
     right: 0;
     display: none;
+
+
+    .bar {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 100px;
+        background-color: $accent1;
+        position: absolute;
+        top: 18px;
+        right: 7px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        transition: all 0.5s;
+
+        &:first-child {
+            -webkit-transform: translateY(-6px);
+            -moz-transform: translateY(-6px);
+            -o-transform: translateY(-6px);
+            -ms-transform: translateY(-6px);
+            transform: translateY(-6px);
+        }
+
+        &:last-child {
+            -webkit-transform: translateY(6px);
+            -moz-transform: translateY(6px);
+            -o-transform: translateY(6px);
+            -ms-transform: translateY(6px);
+            transform: translateY(6px);
+        }
+
+    }
+
+
+    &.x .bar {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+
+        &:first-child {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        &:last-child {
+            opacity: 0.0;
+
+            -webkit-transform: translateY(150px);
+            -moz-transform: translateY(150px);
+            -o-transform: translateY(150px);
+            -ms-transform: translateY(150px);
+            transform: translateY(150px);
+
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+    }
+
 }
 
-.menu-toggle .bar {
-    display: block;
-    width: 20px;
-    height: 2px;
-    border-radius: 100px;
-    position: absolute;
-    top: 18px;
-    right: 7px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    transition: all 0.5s;
-}
-
-.menu-toggle .bar:first-child {
-    -webkit-transform: translateY(-6px);
-    -moz-transform: translateY(-6px);
-    -o-transform: translateY(-6px);
-    -ms-transform: translateY(-6px);
-    transform: translateY(-6px);
-}
-
-.menu-toggle .bar:last-child {
-    -webkit-transform: translateY(6px);
-    -moz-transform: translateY(6px);
-    -o-transform: translateY(6px);
-    -ms-transform: translateY(6px);
-    transform: translateY(6px);
-}
-
-.menu-toggle.x .bar {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.menu-toggle.x .bar:first-child {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-.menu-toggle.x .bar:last-child {
-    opacity: 0.0;
-
-    -webkit-transform: translateY(150px);
-    -moz-transform: translateY(150px);
-    -o-transform: translateY(150px);
-    -ms-transform: translateY(150px);
-    transform: translateY(150px);
-
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    transition: all 0.5s;
-}
 
 
 
@@ -277,11 +293,6 @@ article.hentry {
     font-size: 90%;
 }
 
-
-
-.menu-toggle .bar {
-    background-color: $accent1;
-}
 
 
 
@@ -338,11 +349,12 @@ article.hentry {
 
         a {
             color: lighten($accent3, 20%);
+
+            &:hover {
+                color: $accent2;
+            }
         }
 
-        a:hover {
-            color: $accent2;
-        }
     }
 
     #about, #contact, #links {
@@ -362,54 +374,55 @@ article.hentry {
 
 // the element to which .lift-* is applied to must have a z-index value > -1!
 .lift-right {
-  position: relative;
-}
+    position: relative;
 
-.lift-right:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  right: 10px;
-  left: auto;
-  width: 50%;
-  top: 80%;
-  max-width:300px;
-  background: $shadow-gray;
-  -webkit-box-shadow: 5px 15px 10px $shadow-gray;
-  -moz-box-shadow: 5px 15px 10px $shadow-gray;
-  box-shadow: 5px 15px 10px $shadow-gray;
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  -o-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-}
+    &:after {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      right: 10px;
+      left: auto;
+      width: 50%;
+      top: 80%;
+      max-width:300px;
+      background: $shadow-gray;
+      -webkit-box-shadow: 5px 15px 10px $shadow-gray;
+      -moz-box-shadow: 5px 15px 10px $shadow-gray;
+      box-shadow: 5px 15px 10px $shadow-gray;
+      -webkit-transform: rotate(3deg);
+      -moz-transform: rotate(3deg);
+      -o-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+      transform: rotate(3deg);
+    }
 
+}
 
 .lift-left {
-  position: relative;
-}
+    position: relative;
 
-.lift-left:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  // right: auto;
-  width: 50%;
-  top: 80%;
-  max-width:300px;
-  background: $shadow-gray;
-  -webkit-box-shadow: 5px 15px 10px $shadow-gray;
-  -moz-box-shadow: 5px 15px 10px $shadow-gray;
-  box-shadow: 5px 15px 10px $shadow-gray;
-  -webkit-transform: rotate(-3deg);
-  -moz-transform: rotate(-3deg);
-  -o-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
+    &:after {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      left: 10px;
+      // right: auto;
+      width: 50%;
+      top: 80%;
+      max-width:300px;
+      background: $shadow-gray;
+      -webkit-box-shadow: 5px 15px 10px $shadow-gray;
+      -moz-box-shadow: 5px 15px 10px $shadow-gray;
+      box-shadow: 5px 15px 10px $shadow-gray;
+      -webkit-transform: rotate(-3deg);
+      -moz-transform: rotate(-3deg);
+      -o-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+    }
+
 }
 
 hr.sexy {
