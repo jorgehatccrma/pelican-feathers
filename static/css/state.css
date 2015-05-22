@@ -24,29 +24,30 @@
   /* Force table to not be like tables anymore */
   table, thead, tbody, th, td, tr {
     display: block; }
-  /* Hide table headers (but not display: none;, for accessibility) */
-  thead tr {
-    position: absolute;
-    visibility: hidden;
-    height: 0; }
-  tr {
-    padding: 0.5em; }
-  td {
-    /* Behave  like a "row" */
-    border: none;
-    text-align: left;
-    position: relative;
-    margin: 0.5em 0;
-    padding-left: 0; }
-  td:before {
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap; } }
+  table {
+    /* Hide table headers (but not display: none;, for accessibility) */ }
+    table thead tr {
+      position: absolute;
+      visibility: hidden;
+      height: 0; }
+    table tr {
+      padding: 0.5em; }
+    table td {
+      /* Behave  like a "row" */
+      border: none;
+      text-align: left;
+      position: relative;
+      margin: 0.5em 0;
+      padding-left: 0; }
+    table td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap; } }
 
 @media (max-width: 48em) {
   .menu-toggle {

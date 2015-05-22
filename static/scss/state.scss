@@ -22,36 +22,40 @@
         display: block;
     }
 
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        visibility: hidden;
-        height: 0;
+    table {
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            visibility: hidden;
+            height: 0;
+        }
+
+        tr {
+            padding: 0.5em;
+        }
+
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            text-align: left;
+            position: relative;
+            margin: 0.5em 0;
+            padding-left: 0;  // can be >0 to leave space for fake headers on the left
+        }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
     }
 
-    tr {
-        padding: 0.5em;
-    }
 
-    td {
-        /* Behave  like a "row" */
-        border: none;
-        text-align: left;
-        position: relative;
-        margin: 0.5em 0;
-        padding-left: 0;  // can be >0 to leave space for fake headers on the left
-    }
-
-    td:before {
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-    }
 
     // /*
     // Label the data
@@ -84,16 +88,16 @@
     #main-menu-ul {
         display: auto;
         table-layout: auto;
+
+        li {
+            display: block;
+        }
+
+        a {
+            display: block;
+        }
+
     }
-
-    #main-menu-ul li {
-        display: block;
-
-    }
-
-    #main-menu-ul a {
-        display: block;
-    }
-
 
 }
+

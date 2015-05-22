@@ -34,10 +34,10 @@ code {
 a {
     color: $accent1;
     text-decoration: none;
-}
 
-a:hover {
-    color: $accent3;
+    &:hover {
+        color: $accent3;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,24 +60,28 @@ html, button, input, select, textarea,
 
 
 
-
-
-
 // Responsive Tables
 
-table tr {
-    border-bottom: 1px solid $accent2;
+table {
+
+    tr {
+        border-bottom: 1px solid $accent2;
+    }
+
+    /* Zebra striping */
+    tr:nth-of-type(even) {
+      background: fade-out($bg-color, 0.75);
+    }
+
+    td, th {
+        padding: 0.8em;
+    }
+
 }
 
-/* Zebra striping */
-tr:nth-of-type(even) {
-  background: fade-out($bg-color, 0.75);
-}
 
-table td, table th {
-    padding: 0.8em;
-}
 
+// Others
 
 dl {  // used in archives.html
     margin-bottom: 2em;

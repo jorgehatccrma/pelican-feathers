@@ -40,9 +40,8 @@ code {
 a {
   color: #ff441e;
   text-decoration: none; }
-
-a:hover {
-  color: #095d69; }
+  a:hover {
+    color: #095d69; }
 
 h1, h2, h3, h4, h5, h6 {
   font-style: "Yanone Kaffeesatz", "Source Sans Pro", Helvetica, sans-serif;
@@ -59,15 +58,14 @@ html, button, input, select, textarea,
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-weight: 300; }
 
-table tr {
-  border-bottom: 1px solid #fdba14; }
-
-/* Zebra striping */
-tr:nth-of-type(even) {
-  background: rgba(255, 255, 255, 0.25); }
-
-table td, table th {
-  padding: 0.8em; }
+table {
+  /* Zebra striping */ }
+  table tr {
+    border-bottom: 1px solid #fdba14; }
+  table tr:nth-of-type(even) {
+    background: rgba(255, 255, 255, 0.25); }
+  table td, table th {
+    padding: 0.8em; }
 
 dl {
   margin-bottom: 2em; }
