@@ -226,17 +226,15 @@ article.hentry {
 
 .master-footer {
   padding-top: 1em; }
-
-.master-footer .container {
-  color: #ffffff;
-  padding-bottom: 1em; }
-  .master-footer .container a {
-    color: #0d8798; }
-  .master-footer .container a:hover {
-    color: #fdba14; }
-
-.master-footer #about, .master-footer #contact, .master-footer #links {
-  padding: 0 1.5em; }
+  .master-footer .container {
+    color: #ffffff;
+    padding-bottom: 1em; }
+    .master-footer .container a {
+      color: #11b0c7; }
+    .master-footer .container a:hover {
+      color: #fdba14; }
+  .master-footer #about, .master-footer #contact, .master-footer #links {
+    padding: 0 1.5em; }
 
 .lift-right {
   position: relative; }

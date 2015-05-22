@@ -51,6 +51,7 @@ The theme provides these variables:
 
  - `PYGMENTS_STYLE`: pygments theme. There's an extra theme named `cheerfully_dark`, which is a port of my own [CeerfullyDark](https://github.com/jorgehatccrma/CheerfullyDark) Sublime Text color theme.
  - `LINKEDIN_USER`: exactly that
+ - `ABOUT_TITLE`: Title of the about section in the footer
  - `ABOUT_TEXT`: text to display in the about section (called ME)
  - `ABOUT_IMAGE`: image to display in the about section
  - `ABOUT_LINK`: link to add to the about section

@@ -329,28 +329,30 @@ article.hentry {
 //////////////////////////////////////
 
 .master-footer {
+
     padding-top: 1em;
-}
 
-.master-footer .container {
-    color: $bg-color;
-    padding-bottom: 1em;
+    .container {
+        color: $bg-color;
+        padding-bottom: 1em;
 
-    a {
-        color: lighten($accent3, 10%);
+        a {
+            color: lighten($accent3, 20%);
+        }
+
+        a:hover {
+            color: $accent2;
+        }
     }
 
-    a:hover {
-        color: $accent2;
-    }
-}
-
-
-.master-footer {
     #about, #contact, #links {
         padding: 0 1.5em;
     }
+
 }
+
+
+
 
 
 //////////////////////////////////////
