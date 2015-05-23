@@ -71,7 +71,13 @@ The theme provides these variables:
  - `SHOW_DATE_IN_POST_LIST`: control the display of the date in the article list
  - `DISPLAY_PICTURE_IN_ARTICLE`: control the display of a banner image in the article view
 
-On each article, it is possible to specify a `Picture` variable in the metadata. This picture will be automatically used in the post list (a thumbnail will be automatically created if the advthumbnailer plugin is installed/used) and also in the article view (see `DISPLAY_PICTURE_IN_ARTICLE`).
+
+### Article variables
+
+The following metadata keywords are added to the articles:
+
+ - `Picture`: This picture will be automatically used in the post list (a thumbnail will be automatically created if the advthumbnailer plugin is installed/used) and also in the article view (see `DISPLAY_PICTURE_IN_ARTICLE`).
+ - `OverlayType`: the value will be applied as a class to the div container of the picture. An implementation for the value `white` is embedded in the theme, which uses a white-to-transparent gradient background in title overladed on the image (as opposed to the default black-to-transparent). 
 
 
 ## Features

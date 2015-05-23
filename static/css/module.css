@@ -68,6 +68,10 @@ article.hentry {
     text-overflow: ellipsis;
     overflow: hidden;
     color: #fdba14; }
+  .goto-article.white:before {
+    background: linear-gradient(to top, white 0%, rgba(255, 255, 255, 0.9) 1em, rgba(255, 255, 255, 0.7) 1.8em, rgba(255, 255, 255, 0) 2.8em, rgba(255, 255, 255, 0) 100%); }
+  .goto-article.white h2 {
+    color: #ff441e; }
 
 #contentinfo {
   width: 100%;

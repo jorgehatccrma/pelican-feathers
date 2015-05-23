@@ -13,7 +13,7 @@
             <article class="hentry lift-{{ ['right','left']|random }}">
                 <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
                 {% if article.picture %}
-                    <div class="goto-article">
+                    <div class="goto-article {{ article|attr('overlaytype') }}">
                         {% if 'advthumbnailer' in PLUGINS %}
                             <img class="pure-img" src="{{ SITEURL }}/{{ article.picture | thumbnail("500x_") }}"/>
                         {% else %}

@@ -84,6 +84,24 @@ article.hentry {
         color: $accent2;
     }
 
+    &.white{
+
+        &:before {
+            background: linear-gradient(
+                to top,
+                fade-out($bg-color, 0) 0%,
+                fade-out($bg-color, 0.1) 1em,
+                fade-out($bg-color, 0.3) 1.8em,
+                rgba(255,255,255,0) 2.8em,
+                rgba(255,255,255,0) 100%
+            );
+        }
+
+        h2 {
+            color: $accent1;
+        }
+    }
+
 }
 
 
