@@ -7,7 +7,7 @@ Date: 05/20/2015
 
 A responsive [Pelican](http://blog.getpelican.com/) theme build with (almost) pure CSS. I got inspiration from [pelican-dopetrope](https://github.com/PierrePaul/html5-dopetrope) theme, but this is an implementation from scratch. I tried to use as little javascript as possible, so the theme is heavily based on [Pure](http://purecss.io), [Sass](http://sass-lang.com) (via [LibSass-python](https://github.com/dahlia/libsass-python)).
 
-The only JS included handles menu interaction for small screens and the required MathJax include to display IPython Notebooks.
+The only JS included handles menu interaction for small screens, responsive table so header cells are rendered in small screen (tables are responsive even without the JS) and the required MathJax include to display IPython Notebooks.
 
 
 ## License
@@ -31,6 +31,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+## Screenshots
+
+![Landing page - large screen](screenshots/main-large-screen.jpg?raw=true "Landing page on large screen")
+
+![Landing page - small screen](screenshots/main-small-screen.jpg?raw=true "Landing page on small screen")
+
+![Page with table - large screen](screenshots/table-large-screen.jpg?raw=true "Page with table on large screen")
+
+![Page with table - small screen](screenshots/table-small-screen.jpg?raw=true "Page with table on large screen")
 
 
 ## Plugin support
