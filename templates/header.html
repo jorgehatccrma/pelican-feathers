@@ -22,7 +22,7 @@
                                 <li class="pure-menu-item"><a class="pure-menu-link" href="{{ link }}">{{ title }}</a></li>
                             {% endfor %}
                             {% if DISPLAY_PAGES_ON_MENU %}
-                                {% for p in PAGES %}
+                                {% for p in pages %}
                                     <li{% if p == page %} class="active pure-menu-item"{% else %} class="pure-menu-item"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
                                 {% endfor %}
                             {% else %}
